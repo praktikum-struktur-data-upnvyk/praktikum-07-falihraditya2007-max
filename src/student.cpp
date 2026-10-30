@@ -198,7 +198,16 @@ void clear(Node*& root) {
 //     3                           masih punya satu cabang)
 // =============================================================================
 int jumlahDaun(const Node* root) {
-    return 0;
+    if (root == nullptr) {
+        return 0;
+    }
+
+    if (root->left == nullptr && root->right == nullptr) {
+        return 1;
+    }
+
+    return jumlahDaun(root->left) +
+           jumlahDaun(root->right);
 }
 
 // =============================================================================
